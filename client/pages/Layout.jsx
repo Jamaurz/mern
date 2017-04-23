@@ -26,6 +26,7 @@ export default class Layout extends React.Component {
                 <div class='listRecipe'>
                     <Link to='edit'>Edit</Link>
                     <Link to='recipe'>Recipe</Link>
+                    <a href='auth/twitter'>Sing in with Twitter</a>
                     <h1>Lauout</h1>
                     <p>list recipe</p>
                     <h1 onClick={this.addRandomItem.bind(this)}>Add random item to list</h1>

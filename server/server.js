@@ -7,13 +7,16 @@ var bodyParser = require('body-parser');
 var passport = require('passport');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
+var mongoose = require('mongoose');
+
+require('dotenv').load();
 
 // IMPORTS //
 var indexRoutes = require('./routes/index');
 
 // CREATE APP //
 var app = express();
-require('./app/config/passport')(passport);
+require('./config/passport')(passport);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -25,8 +28,17 @@ app.use(cors({ origin: '*' }));
 // MIDDLEWARE //
 app.use(express.static(path.join(__dirname, '../public')));
 
-mongoose.connect(`mongodb://http://localhost:27017/app`);
+mongoose.connect('mongodb://jamaurz:1@ds115411.mlab.com:15411/mern');
 mongoose.Promise = global.Promise;
+
+app.use(session({
+	secret: 'secret',
+	resave: false,
+	saveUninitialized: true
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 // ROUTES //
 app.use('/', indexRoutes);
