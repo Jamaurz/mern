@@ -7,6 +7,8 @@ import {add, addEvent, singIn, singInTwitter, getEvent, getAllEvent} from "../ac
 import Login from '../components/Login.jsx';
 import Event from '../components/Event.jsx';
 
+import './Layout.sass';
+
 @connect((store, ownProps) => {
     //console.log('ownProps', ownProps);
     return {
