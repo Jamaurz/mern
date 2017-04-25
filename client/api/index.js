@@ -1,17 +1,16 @@
-// import axios from 'axios';
-//
-// import { apiPrefix } from '../../etc/config.json';
-//
-// export default {
-//     listNotes() {
-//         return axios.get(`${apiPrefix}/notes`);
-//     },
-//
-//     createNote(data) {
-//         return axios.post(`${apiPrefix}/notes`, data);
-//     },
-//
-//     deleteNote(noteId) {
-//         return axios.delete(`${apiPrefix}/notes/${noteId}`);
-//     }
-// }
+var axios = require('axios');
+
+//import { apiPrefix } from '../../etc/config.json';
+var apiPrefix = 'https://mern-jamaurz.c9users.io';
+
+export default {
+    add(eventName) {
+        return axios.post(apiPrefix + '/add', {'event': eventName});
+    },
+    singIn() {
+        return axios.get(apiPrefix + '/info')
+    },
+    getEvent() {
+       return axios.get(apiPrefix + '/getevent');
+    }
+}

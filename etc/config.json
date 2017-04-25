@@ -1,6 +1,6 @@
 {
-  "apiPrefix": "http://localhost:8000",
-  "serverPort": "8000",
+  "apiPrefix": "https://mern-jamaurz.c9users.io",
+  "serverPort": "8080",
   "db":{
     "name": "app",
     "host": "localhost",

@@ -7,9 +7,6 @@ var User = new Schema({
         token: String,
         username: String,
         displayName: String
-    },
-    events: {
-        place: String
     }
 });
 
